@@ -1,9 +1,29 @@
 /* GET travel view */
-var fs = require('fs');
-var trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
+const request = require('request');
 
 const travel = (req, res) => {
-    res.render('travel', { title: 'Travlr Getaways', trips: trips });
+    const path = '/api/trips';
+    const requestOptions = {
+        url: `http://localhost:3000${path}`,
+        method: 'GET',
+        json: {}
+    };
+
+    request(
+        requestOptions,
+        (err, response, body) => {
+            if (err) {
+                console.log(err);
+            } else if (response.statusCode === 200) {
+                res.render('travel', {
+                    title: 'Travlr Getaways',
+                    trips: body
+                });
+            } else {
+                console.log(response.statusCode);
+            }
+        }
+    );
 };
 
 module.exports = {
