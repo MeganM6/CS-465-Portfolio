@@ -1,0 +1,75 @@
+
+<div class="container mt-4">
+  <h2>Edit Vacation Trip</h2>
+
+  @if (errorMessage) {
+    <p class="text-danger">{{ errorMessage }}</p>
+  } @else {
+    <form #tripForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label for="code">Trip Code</label>
+        <input id="code" name="code" type="text"
+               class="form-control"
+               [(ngModel)]="trip.code" readonly>
+      </div>
+
+      <div class="mb-3">
+        <label for="name">Trip Name</label>
+        <input id="name" name="name" type="text"
+               class="form-control"
+               [(ngModel)]="trip.name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="length">Trip Length</label>
+        <input id="length" name="length" type="text"
+               class="form-control"
+               [(ngModel)]="trip.length" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="start">Start Date</label>
+        <input id="start" name="start" type="date"
+               class="form-control"
+               [(ngModel)]="trip.start" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="resort">Resort</label>
+        <input id="resort" name="resort" type="text"
+               class="form-control"
+               [(ngModel)]="trip.resort" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="perPerson">Price Per Person</label>
+        <input id="perPerson" name="perPerson" type="text"
+               class="form-control"
+               [(ngModel)]="trip.perPerson" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="image">Image Filename</label>
+        <input id="image" name="image" type="text"
+               class="form-control"
+               [(ngModel)]="trip.image" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="description">Description</label>
+        <textarea id="description" name="description"
+                  class="form-control" rows="4"
+                  [(ngModel)]="trip.description"
+                  required></textarea>
+      </div>
+
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="tripForm.invalid">
+        Save Changes
+      </button>
+
+    </form>
+  }
+</div>

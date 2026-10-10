@@ -1,0 +1,27 @@
+
+<div class="card">
+  <img
+    class="card-img-top"
+    [src]="'/assets/images/' + trip.image"
+    [alt]="trip.name"
+  />
+
+  <div class="card-body">
+    <h5 class="card-title">{{ trip.name }}</h5>
+
+    <p class="card-text">{{ trip.description }}</p>
+
+    <p><strong>Resort:</strong> {{ trip.resort }}</p>
+    <p><strong>Length:</strong> {{ trip.length }}</p>
+    <p><strong>Start Date:</strong> {{ trip.start }}</p>
+    <p><strong>Price Per Person:</strong> {{ trip.perPerson }}</p>
+
+    <div class="mt-3">
+      <a
+        [routerLink]="['/edit-trip', trip.code]"
+        class="btn btn-primary">
+        Edit Trip
+      </a>
+    </div>
+  </div>
+</div>

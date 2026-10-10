@@ -1,6 +1,7 @@
 /* GET travel view */
 const request = require('request');
 
+
 const travel = (req, res) => {
     const path = '/api/trips';
     const requestOptions = {
